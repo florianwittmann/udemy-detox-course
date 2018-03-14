@@ -9,7 +9,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -33,6 +34,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Button title={"Start"} testID={"startButton"} />
       </View>
     );
   }
