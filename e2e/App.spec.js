@@ -13,4 +13,7 @@ describe('App screen', () => {
     await expect(element(by.id('runningState'))).toHaveText('Running');
   })
 
+  it.only('should write into TextInput', async () => {
+    await element(by.id("input")).typeText("Hello World!")
+  })
 });

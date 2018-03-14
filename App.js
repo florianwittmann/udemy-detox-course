@@ -9,7 +9,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  TextInput
 } from 'react-native';
 
 
@@ -35,6 +36,7 @@ export default class App extends Component<Props> {
           {this.state.buttonPressed ? "Running" : "Stopped"}
         </Text>
         <Button onPress={this.handleButtonPress} title={"Start"} testID={"startButton"} />
+        <TextInput testID={"input"} style={styles.input} />
       </View>
     );
   }
@@ -57,4 +59,10 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  input: {
+    width: "80%",
+    height: 40,
+    borderWidth: 1,
+    padding: 10
+  }
 });
