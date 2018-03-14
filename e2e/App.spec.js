@@ -29,7 +29,7 @@ describe('App screen', () => {
     await element(by.id('list')).scroll(100, 'down')
   })
 
-  it.only('should scroll till list end', async () => {
+  it('should scroll till list end', async () => {
     await element(by.id('list')).swipe('up', 'slow')
   })
 });
