@@ -14,6 +14,8 @@ describe('App screen', () => {
   })
 
   it.only('should write into TextInput', async () => {
-    await element(by.id("input")).replaceText("Hello World!")
+    await element(by.id("input")).typeText("Hello World!")
+    await element(by.id('input')).clearText();
+    await element(by.id("input")).typeText("Bye!")
   })
 });
