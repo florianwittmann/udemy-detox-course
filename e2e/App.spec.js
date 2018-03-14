@@ -30,6 +30,6 @@ describe('App screen', () => {
   })
 
   it.only('should scroll till list end', async () => {
-    await element(by.id('list')).scrollTo('bottom')
+    await element(by.id('list')).swipe('up', 'slow')
   })
 });
