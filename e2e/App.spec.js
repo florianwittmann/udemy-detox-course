@@ -24,4 +24,12 @@ describe('App screen', () => {
     await element(by.id('input')).clearText();
     await element(by.id("input")).typeText("Bye!")
   })
+
+  it('should scroll the name by 1', async () => {
+    await element(by.id('list')).scroll(100, 'down')
+  })
+
+  it.only('should scroll till list end', async () => {
+    await element(by.id('list')).scrollTo('bottom')
+  })
 });

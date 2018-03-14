@@ -10,7 +10,8 @@ import {
   Text,
   View,
   Button,
-  TextInput
+  TextInput,
+  FlatList
 } from 'react-native';
 
 
@@ -37,6 +38,13 @@ export default class App extends Component<Props> {
         </Text>
         <Button onPress={this.handleButtonPress} title={"Start"} testID={"startButton"} />
         <TextInput testID={"input"} style={styles.input} />
+        <View style={styles.listContainer}>
+          <FlatList
+            testID={"list"}
+            data={["Anna", "Tom", "Susanna", "Julia"]}
+            renderItem={({ item }) => <Text style={styles.listItem}>{item}</Text>} />
+        </View>
+
       </View>
     );
   }
@@ -64,5 +72,13 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     padding: 10
+  },
+  listContainer: {
+    height: 100,
+    width: "80%",
+    backgroundColor: '#eee'
+  },
+  listItem: {
+    height: 100
   }
 });
