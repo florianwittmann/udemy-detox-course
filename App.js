@@ -33,10 +33,13 @@ export default class App extends Component<Props> {
         <Text testID={"welcome"} style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Counter value={this.state.buttonPressed} testID={"runningState"} style={styles.instructions} />
 
+        <View testID={'counterContainer'}>
 
-        <Button onPress={this.handleButtonPress} title={"Start"} testID={"startButton"} />
+          <Counter value={this.state.buttonPressed} testID={"runningState"} style={styles.instructions} />
+          <Button onPress={this.handleButtonPress} title={"Start"} testID={"startButton"} />
+        </View>
+
         <TextInput testID={"input"} style={styles.input} />
         <View style={styles.listContainer}>
           <FlatList
@@ -45,6 +48,7 @@ export default class App extends Component<Props> {
             renderItem={({ item }) => <Text style={styles.listItem}>{item}</Text>} />
         </View>
 
+        <Button title={"Start"} testID={"startButton"} />
       </View>
     );
   }
