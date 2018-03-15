@@ -23,9 +23,14 @@
   },
   "jest": {
     "preset": "react-native",
-    "testPathIgnorePatterns": ["<rootDir>/node_modules","<rootDir>/e2e"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules",
+      "<rootDir>/e2e"
+    ]
   },
   "detox": {
+    "test-runner": "jest",
+    "runner-config": "e2e/config.json",
     "configurations": {
       "ios.sim.debug": {
         "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/detox.app",
@@ -34,5 +39,5 @@
         "name": "iPhone 7"
       }
     }
-  }  
+  }
 }
