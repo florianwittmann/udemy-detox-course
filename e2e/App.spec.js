@@ -7,7 +7,7 @@ describe('App screen', () => {
     await expect(element(by.id('welcome'))).toBeVisible();
   });
 
-  it.only('should count to 1 if pressed once', async () => {
+  it('should count to 1 if pressed once', async () => {
     await expect(element(by.id('runningState'))).toHaveText('0');
     await element(by.id('startButton').withAncestor(by.id('counterContainer'))).tap();
     await expect(element(by.id('runningState'))).toHaveText('1');
@@ -15,7 +15,7 @@ describe('App screen', () => {
 
   it('should count to 4 if pressed 4 times', async () => {
     await expect(element(by.id('runningState'))).toHaveText('0');
-    await element(by.label('Start')).multiTap(4);
+    await element(by.id('startButton').withAncestor(by.id('counterContainer'))).multiTap(4);
     await expect(element(by.id('runningState'))).toHaveText('4');
   })
 

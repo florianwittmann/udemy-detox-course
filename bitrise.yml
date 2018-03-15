@@ -1,0 +1,53 @@
+---
+format_version: '4'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: other
+workflows:
+  ci:
+    steps:
+    - yarn@0.0.4: {}
+    - yarn@0.0.4:
+        inputs:
+        - command: run test
+    - npm@0.9.0:
+        inputs:
+        - command: install -g detox-cli
+        title: Install Detox CLI
+    - npm@0.9.0:
+        inputs:
+        - command: install -g react-native-cli
+        title: Install React Native CLI
+    - script@1.1.5:
+        title: Install Detox Utils
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            brew tap wix/brew
+            brew install applesimutils --HEAD
+    - script@1.1.5:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+ 
+            detox build --configuration ios.sim.release
+        title: Detox - Build Release App
+    - script@1.1.5:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            detox test --configuration ios.sim.release --cleanup
+        title: Detox - Run E2E Tests
