@@ -1,0 +1,22 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "configurations": {
+    "ios.sim.debug": {
+      "type": "ios.simulator",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/detox.app",
+      "build": "xcodebuild -workspace ios/detox.xcworkspace -scheme detox -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+      "device": {
+        "type": "iPhone 11"
+      }
+    },
+    "ios.sim.release": {
+      "type": "ios.simulator",
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/detox.app",
+      "build": "xcodebuild -workspace ios/detox.xcworkspace -scheme detox -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+      "device": {
+        "type": "iPhone 11"
+      }
+    }
+  }
+}

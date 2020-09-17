@@ -1,54 +1,55 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
   View,
   Button,
   TextInput,
-  FlatList
+  FlatList,
 } from 'react-native';
-import { Counter } from './Counter'
+import {Counter} from './Counter';
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   constructor(props) {
     super();
-    this.state = { buttonPressed: 0 };
+    this.state = {buttonPressed: 0};
     this.handleButtonPress = this.handleButtonPress.bind(this);
   }
 
   handleButtonPress() {
-    this.setState({ buttonPressed: this.state.buttonPressed + 1 });
+    this.setState({buttonPressed: this.state.buttonPressed + 1});
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text testID={"welcome"} style={styles.welcome}>
+        <Text testID={'welcome'} style={styles.welcome}>
           Welcome to React Native!
         </Text>
 
         <View testID={'counterContainer'}>
-
-          <Counter value={this.state.buttonPressed} testID={"runningState"} style={styles.instructions} />
-          <Button onPress={this.handleButtonPress} title={"Start"} testID={"startButton"} />
+          <Counter
+            value={this.state.buttonPressed}
+            testID={'runningState'}
+            style={styles.instructions}
+          />
+          <Button
+            onPress={this.handleButtonPress}
+            title={'Start'}
+            testID={'startButton'}
+          />
         </View>
 
-        <TextInput testID={"input"} style={styles.input} />
+        <TextInput testID={'input'} style={styles.input} />
         <View style={styles.listContainer}>
           <FlatList
-            testID={"list"}
-            data={["Anna", "Tom", "Susanna", "Julia"]}
-            renderItem={({ item }) => <Text style={styles.listItem}>{item}</Text>} />
+            testID={'list'}
+            data={['Anna', 'Tom', 'Susanna', 'Julia']}
+            renderItem={({item}) => <Text style={styles.listItem}>{item}</Text>}
+          />
         </View>
 
-        <Button title={"Start"} testID={"startButton"} />
+        <Button title={'Start'} testID={'startButton'} />
       </View>
     );
   }
@@ -72,17 +73,17 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   input: {
-    width: "80%",
+    width: '80%',
     height: 40,
     borderWidth: 1,
-    padding: 10
+    padding: 10,
   },
   listContainer: {
     height: 100,
-    width: "80%",
-    backgroundColor: '#eee'
+    width: '80%',
+    backgroundColor: '#eee',
   },
   listItem: {
-    height: 100
-  }
+    height: 100,
+  },
 });
